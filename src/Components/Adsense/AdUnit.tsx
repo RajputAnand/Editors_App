@@ -65,6 +65,7 @@ const AdUnit: React.FC<AdUnitProps> = ({
           onAdLoaded?.(info);
           console.log("✅ Adsense ad loaded:", info);
           clearInterval(poller);
+          clearTimeout(timeout);
         }
       }
     }, 500);
@@ -115,7 +116,7 @@ const AdUnit: React.FC<AdUnitProps> = ({
           style={{
             display: adLoaded ? "block" : "none", // hide until ready
             width: "100%",
-            minHeight: 50,
+            minHeight: 100,
           }}
           data-ad-client="ca-pub-5592520843885493"
           data-ad-slot={slot}

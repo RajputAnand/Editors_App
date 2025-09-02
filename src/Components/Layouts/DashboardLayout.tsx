@@ -209,6 +209,7 @@ const DashboardLayout: FC<IDashboardLayout> = () => {
   const client = Agora.useRTCClient(
     Agora.AgoraRTC.createClient({ codec: "vp8", mode: "live" })
   );
+  if (!client) return null;
 
   return (
     <Agora.AgoraRTCProvider client={client}>
