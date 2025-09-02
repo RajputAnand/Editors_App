@@ -493,14 +493,18 @@ const Live: FC<ILive> = (props) => {
   return (
     <React.Fragment>
       {liveAcceptModal && (
-        <LiveAcceptModal
-          isOpen={liveAcceptModal}
-          onRejectClicked={() => rejectMutate({})}
-          onAcceptClicked={() => acceptMutate({})}
-          invitedUser={inviteCreatedUser}
-          acceptPending={acceptPending}
-          rejectPending={rejectPending}
-        />
+        <>
+          <div>
+            <LiveAcceptModal
+              isOpen={liveAcceptModal}
+              onRejectClicked={() => rejectMutate({})}
+              onAcceptClicked={() => acceptMutate({})}
+              invitedUser={inviteCreatedUser}
+              acceptPending={acceptPending}
+              rejectPending={rejectPending}
+            />
+          </div>
+        </>
       )}
       {renderStartButton()}
     </React.Fragment>

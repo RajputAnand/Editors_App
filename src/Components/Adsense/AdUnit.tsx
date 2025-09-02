@@ -41,7 +41,7 @@ const AdUnit: React.FC<AdUnitProps> = ({
       if (adRef.current && !pushedRef.current) {
         // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push({
-          params: { google_adtest: "on" },
+          // params: { google_adtest: "on" },
         });
         pushedRef.current = true;
         console.log("📢 Adsense script pushed for slot:", slot);
@@ -117,7 +117,7 @@ const AdUnit: React.FC<AdUnitProps> = ({
             width: "100%",
             minHeight: 50,
           }}
-          data-ad-client="ca-app-pub-5592520843885493"
+          data-ad-client="ca-pub-5592520843885493"
           data-ad-slot={slot}
           data-ad-format={format}
           data-full-width-responsive="true"
