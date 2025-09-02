@@ -235,9 +235,9 @@ const DashboardLayout: FC<IDashboardLayout> = () => {
           {/* <DashboardHeader onLogoutClick={handleEndModal} searchOnChange={handleSearchOnChange} profileIsLoading={isLoading} image={data?.data?.profile_image} openMenu={triggerClose}/> */}
           <div className="my-0">
             {/* <AdUnit slot="6300978111" /> */}
-            <div className="my-4">
+            {/* <div className="my-4">
               <AdUnit slot="1234567890" format="horizontal" />
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-row flex-grow tablet:pb-8">
             {/* // videocontainernotification"> */}
@@ -259,11 +259,11 @@ const DashboardLayout: FC<IDashboardLayout> = () => {
                 />
               </div>
               <div className="my-4">
-                <AdUnit
+                {/* <AdUnit
                   slot="1234567890"
                   format="horizontal"
                   // maxWidth={90} // e.g., leaderboard
-                />
+                /> */}
               </div>
             </div>
             <Suspense fallback={<>Loading</>}>

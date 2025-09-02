@@ -13,8 +13,8 @@ export const RE_SHARE_LINK = isDev
   ? "https://api-editorsapp.voicene.com/post/redirect/:id?type=:type"
   : "https://be.editorsapp.com/post/redirect/:id?type=:type";
 
-// export const LIVE_SHARE_LINK = `${window.origin}${PathConstants.LiveJoin}`
-export const LIVE_SHARE_LINK = `http://localhost:5173/${PathConstants.LiveJoin}`;
+export const LIVE_SHARE_LINK = `${window.origin}${PathConstants.LiveJoin}`;
+// export const LIVE_SHARE_LINK = `http://localhost:5173/${PathConstants.LiveJoin}`;
 
 export const PLAY_STORE_APP_LINK =
   "https://play.google.com/store/apps/details?id=com.editorsapp.editorsapp";
