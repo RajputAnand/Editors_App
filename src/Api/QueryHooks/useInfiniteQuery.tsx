@@ -1,0 +1,33 @@
+import {UndefinedInitialDataInfiniteOptions, useInfiniteQuery} from "@tanstack/react-query";
+import AxiosClient from "../AxiosClient.ts";
+import {responsesCommonFilter} from "../../Utils/requestUtils.ts";
+import {AxiosResponse} from "axios";
+
+export const useGetInfiniteQuery = (args: UndefinedInitialDataInfiniteOptions<any, any, any, any, any>,  isFromData?: boolean, responsesFilter?: (data: AxiosResponse) => void) => {
+    function buildRequest(props: any) {
+        const {pageParam} = props
+        let body = args.queryKey[2];
+        if (isFromData) {
+            let body = new FormData();
+            for (const [key, value] of Object.entries(args.queryKey[2] as any)) {
+                body.append(key, value as any);
+            }
+        }
+        return AxiosClient.request({
+            url: args.queryKey[0] as string,
+            ...(isFromData ? {
+                headers: { "Content-Type": "multipart/form-data" }
+            } : {}),
+            ...(args.queryKey?.[1] !== "GET" ? { data: body } : {}),
+            ...(args.queryKey?.[1] === "GET" ? { params: {  page: pageParam,...body } } : {}),
+            method: args.queryKey?.[1] as string
+        }).then(Boolean(responsesFilter) ? responsesFilter : responsesCommonFilter)
+    }
+
+    
+
+    return useInfiniteQuery<any, any, any, any, any>({
+        queryFn: (props) => buildRequest(props),
+        ...args
+    })
+}
