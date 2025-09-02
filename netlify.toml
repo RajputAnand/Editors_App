@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist/client"  # change to build or dist if that is your output
+ 
+# Make SPA routing work without a separate _redirects file
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+ 
+# Pin Node to avoid “works locally, fails on Netlify”
+[build.environment]
+  NODE_VERSION = "18"
